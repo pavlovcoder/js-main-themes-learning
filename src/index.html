@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="urf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="index.css">
+    </head>
+    <body>
+        <!-- Vertical static menu -->
+        <div class="tab">
+            <div class="menu-label">JS Themes</div>
+            <button class="tablinks" id="defaultOpen">Comparisons</button>
+            <button class="tablinks">Switch</button>
+            <button class="tablinks">Break</button>
+            <button class="tablinks">Type Conversion</button>
+            <button class="tablinks">Bitwise</button>
+        </div>
+        <!-- Contents of static menu -->
+        <div id="Comparisons" class="tabcontent">
+            <h3 class="main-titles">Comparisons</h3>
+            <hr>
+            <h4 class="main-subtitles">1. Ternary operator checking</h4>
+            <div class="content">
+                <label>Your age: </label>
+                <input type="text" placeholder="18..." id="age"> 
+                <button type="button" class="callFunction">Try it</button>
+                <p id="output-status"></p>
+            </div>
+        </div>
+        <div id="Switch" class="tabcontent">
+            <h3 class="main-title">Switch</h3>
+            <hr>
+            <h4 class="main-subtitles">1. Testing switch statement</h4>
+            <div class="content">
+                <button type="button" class="callFunction">Get the day of week</button>
+                <button type="button" class="callFunction">Reset</button>
+                <input type="text" placeholder="day of week..." class="out-day" id="out-day" readonly>
+            </div>
+        </div>
+        <div id="break" class="tabcontent">
+            <h3>Break</h3>
+            <hr>
+            <h4 class="main-subtitles">1. Testing continue and break operator</h4>
+            <div class="content">
+                <button type="button" class="callFunction">Get 30 elements from 100 without 5-th</button>
+                <button type="button" class="callFunction">Delete</button>
+                <div class="get-data"></div>
+            </div>
+            <h4 class="main-subtitles">2. Testing labels with 'break' statement</h4>
+            <div class="content">
+                <button type="button" class="callFunction">Testing label with break</button>
+                <button type="button" class="callFunction">Delete</button>
+                <div class="get-data-2"></div>
+            </div>
+        </div>
+        <div id="type-conversion" class="tabcontent">
+            <h3>Type Conversion</h3>
+            <hr>
+            <h4 class="main-subtitles">1. Checkout type of object</h4>
+            <div class="content">
+                <button type="button" class="callFunction check">Is it Date ?</button>
+                <button type="button" class="callFunction check">Is it Array ?</button>
+                <button type="button" class="callFunction check">Is it Object ?</button>
+                <div class="start-data">
+                    <div class="start-data-row">
+                        <div class="start-data-cell-1">Date</div>
+                        <div class="start-data-cell-2"></div>
+                    </div>
+                    <div class="start-data-row">
+                        <div class="start-data-cell-1">Array</div>
+                        <div class="start-data-cell-2"></div>
+                    </div>
+                    <div class="start-data-row">
+                        <div class="start-data-cell-1">Object</div>
+                        <div class="start-data-cell-2">Second Object</div>
+                    </div>
+                </div>
+                <input type="text" placeholder="Click buttons above for display results" id="out-type" readonly>
+            </div>
+        </div>
+        <div id="bitwise" class="tabcontent">
+            <h3>Bitwise</h3>
+            <hr>
+            <h4 class="main-subtitles">1. Checking all bitwise operations</h4>
+            <div class="content bitwise">
+                <div class="bitwise-header">A: 75(dec) = 1001011(bin)</div>
+                <div class="bitwise-header">B: 5(dec) = 101(bin)</div>
+                <ul class="button-menu-left">
+                    <li><button type="button" class="callFunction left-menu">75&5</button></li>
+                    <li><button type="button" class="callFunction left-menu">75|5</button></li>
+                    <li><button type="button" class="callFunction left-menu">75^5</button></li>
+                    <li><button type="button" class="callFunction left-menu">~75</button></li>
+                    <li><button type="button" class="callFunction left-menu">75 &#12298 5</button></li>
+                    <li><button type="button" class="callFunction left-menu" left-menu>75 &#12299 5</button></li>
+                    <li><button type="button" class="callFunction left-menu">&#12297&#12297&#12297</button></li>
+                </ul>
+                <div class="output-bitwise">
+                    <div class="bitwise-table">
+                        <div class="bitwise-table-head"></div>
+                        <div class="bitwise-table-row">
+                            <div class="bitwise-table-cell"></div>
+                            <div class="bitwise-table-cell"></div>
+                        </div>
+                        <div class="bitwise-table-row">
+                            <div class="bitwise-table-cell"></div>
+                            <div class="bitwise-table-cell"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="index.js"></script>
+    </body>
+</html>

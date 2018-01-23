@@ -1,0 +1,212 @@
+* {
+  box-sizing: border-box; }
+
+body {
+  font-family: "Lato", sans-serif; }
+
+/* Style the tab */
+.tab {
+  float: left;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+  width: 15%;
+  height: 98vh; }
+
+/* Style the buttons inside the tab */
+.tab button {
+  display: block;
+  background-color: inherit;
+  color: black;
+  padding: 22px 16px;
+  width: 100%;
+  border: none;
+  outline: none;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 17px; }
+
+.menu-label {
+  display: block;
+  background-color: #595959;
+  color: #ffffff;
+  padding: 22px 16px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  font-size: 17px; }
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd; }
+
+/* Create an active/current "tab button" class */
+.tab button.active {
+  background-color: #ccc; }
+
+/* Style the tab content */
+.tabcontent {
+  float: left;
+  padding: 5px 30px;
+  border: 1px solid #ccc;
+  width: 85%;
+  border-left: none;
+  height: 98vh;
+  overflow-y: scroll; }
+
+.content {
+  padding: 21px;
+  border: 0.05px solid #a6a6a6; }
+
+button {
+  cursor: pointer; }
+
+.get-data, .get-data-2 {
+  margin-top: 15px;
+  padding: 15px; }
+
+#list-out {
+  border: 0.05px solid #a6a6a6;
+  padding: 15px;
+  padding-left: 35px; }
+
+#list-out > li {
+  font-size: 14px;
+  font-family: monospace;
+  color: #009933; }
+
+.hardware-package {
+  display: table; }
+
+.hardware-title {
+  display: table-header-group;
+  text-align: center;
+  font-weight: 600; }
+
+.hardware-row {
+  display: table-row; }
+
+.hardware-part {
+  display: table-cell;
+  float: left;
+  font-size: 12px;
+  font-family: monospace; }
+
+.hardware-part.CPU {
+  color: #0033cc; }
+
+.hardware-part.RAM {
+  color: #009933; }
+
+.hardware-part.GPU {
+  color: #ff6600; }
+
+.errorMessage {
+  padding: 2px 5px;
+  background-color: #ff0000;
+  border: 0.5px solid #cc0000;
+  color: #ffffff; }
+
+.start-data {
+  display: table;
+  margin-top: 15px;
+  border: 0.05px solid #a6a6a6;
+  padding: 15px; }
+
+.start-data-row {
+  display: table-row;
+  width: 100%;
+  padding: 15px;
+  border-bottom: 0.05px solid #a6a6a6; }
+
+.start-data-cell-1 {
+  display: table-cell;
+  width: 30%;
+  border-top: 0.05px solid #a6a6a6;
+  border-left: 0.05px solid #a6a6a6;
+  border-bottom: 0.05px solid #a6a6a6;
+  padding: 15px; }
+
+.start-data-cell-2 {
+  display: table-cell;
+  width: 70%;
+  border: 0.05px solid #a6a6a6;
+  padding: 15px; }
+
+.callFunction.check {
+  width: 32.3%; }
+
+#out-type {
+  width: 100%;
+  padding: 5px 15px; }
+
+.content.bitwise {
+  float: left;
+  width: 100%;
+  display: block; }
+
+.callFunction.left-menu {
+  width: 60px;
+  margin: 5px; }
+
+.button-menu-left {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  float: left;
+  width: 20%; }
+
+.output-bitwise {
+  border: 1px solid #000000;
+  margin: 5px 10px;
+  padding: 10px;
+  float: left;
+  width: 74.3%;
+  height: 207px;
+  background-color: #b3b3b3; }
+
+.bitwise-header {
+  margin: 5px;
+  padding: 5px;
+  border: 0.05px solid #a6a6a6; }
+
+.bitwise-table {
+  display: none;
+  width: 100%;
+  height: 145px; }
+
+.bitwise-table-head {
+  display: table-caption;
+  text-align: center;
+  border: 0.3px solid #ffffff;
+  color: #ffffff;
+  padding: 10px; }
+
+.bitwise-table-row {
+  display: table-row;
+  border: 0.3px solid #ffffff;
+  border-top: none;
+  color: #ffffff; }
+
+.bitwise-table-cell {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  border: 0.3px solid #ffffff;
+  border-top: none; }
+
+.bitwise-table-cell:first-child {
+  border-right: none; }
+
+@media (min-width: 576px) and (max-width: 767.99px) {
+  .tab {
+    width: 30%; }
+
+  .tabcontent {
+    width: 70%;
+    padding: 5px 20px; }
+
+  .out-day {
+    margin-top: 10px; } }
+
+/*# sourceMappingURL=index.css.map */
