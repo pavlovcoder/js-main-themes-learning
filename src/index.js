@@ -18,16 +18,24 @@ document.getElementsByClassName('tablinks')[3].addEventListener('click',function
 
 document.getElementsByClassName('tablinks')[4].addEventListener('click',function(){
     openNewTheme(event,4);
-})
+});
+
+document.getElementsByClassName('tablinks')[5].addEventListener('click',function(){
+  openNewTheme(event,5);
+});
+
+document.getElementsByClassName("tablinks")[6].addEventListener('click',function(){
+  openNewTheme(event,6);
+});
 
 function openNewTheme(ev,thNum){
     var tabcontent = document.getElementsByClassName("tabcontent"),
     tablinks = document.getElementsByClassName("tablinks");
-    
+
     for(var i=0;i<tabcontent.length;i++){
         tabcontent[i].style.display = "none";
     }
-    
+
     for(var i=0;i<tablinks.length;i++){
         tablinks[i].className = tablinks[i].className.replace(" active","");
     }
@@ -116,46 +124,46 @@ document.getElementsByClassName("callFunction")[4].addEventListener("click",func
 
 var outCont2 = document.getElementsByClassName("get-data-2");
 document.getElementsByClassName("callFunction")[5].addEventListener("click",function(){
-    var t=0, RAM_now=0, CPU_now=0, t_max=105, RAM_max=32, CPU_max=4, CPU_mes, RAM_mes, t_mes; 
+    var t=0, RAM_now=0, CPU_now=0, t_max=105, RAM_max=32, CPU_max=4, CPU_mes, RAM_mes, t_mes;
     var hardware = document.createElement("div");
     var hardwareTitle = document.createElement("div");
     var hardwareRow = document.createElement("div");
     var CPU = document.createElement("div");
     var RAM = document.createElement("div");
     var GPU = document.createElement("div");
-    
+
     hardware.classList.add('hardware-package');
     hardwareTitle.classList.add('hardware-title');
     hardwareRow.classList.add('hardware-row');
     CPU.classList.add('hardware-part','CPU');
     RAM.classList.add('hardware-part','RAM');
     GPU.classList.add('hardware-part','GPU');
-    
+
     hardware.appendChild(hardwareTitle);
     hardware.appendChild(hardwareRow);
     hardwareRow.appendChild(CPU);
     hardwareRow.appendChild(RAM);
     hardwareRow.appendChild(GPU);
-    
+
     hardwareTitle.innerHTML = "HARDWARE MONITORING";
     console.log(hardware);
     outCont2[0].appendChild(hardware);
-    
+
     Monitor: {
         while(RAM_now<RAM_max){
             if(t<=t_max){
                 CPU_mes = document.createElement("p");
                 RAM_mes = document.createElement("p");
                 t_mes = document.createElement("p");
-                
+
                 CPU_mes.innerHTML = 'Speed of CPU = ' + CPU_now;
                 RAM_mes.innerHTML = 'Storage of RAM = ' + RAM_now;
                 t_mes.innerHTML = 'Temperature of GPU = ' + t;
-                
+
                 CPU.appendChild(CPU_mes);
                 RAM.appendChild(RAM_mes);
                 GPU.appendChild(t_mes);
-                RAM_now+=0.56; 
+                RAM_now+=0.56;
                 CPU_now+=0.000924;
                 t+=11.4242;
             } else {
@@ -257,7 +265,7 @@ document.getElementsByClassName("callFunction left-menu")[2].addEventListener("c
 document.getElementsByClassName("callFunction left-menu")[3].addEventListener("click",function(){
    if(displayToomler === true){
        firstDisplay();
-   } 
+   }
    var x = ~75;
    mainTable[0].childNodes[1].innerHTML = "~NOT";
    tableRow[0].childNodes[3].innerHTML = x;
@@ -302,4 +310,72 @@ function firstDisplay(){
     tableRow[0].childNodes[1].innerHTML = "Decimal";
     tableRow[1].childNodes[1].innerHTML = "Binary";
     mainTable[0].style.display = "table";
+}
+
+//Testing input validation with try...catch and throw statements:
+document.getElementsByClassName("callFunction")[17].addEventListener("click",function(){
+  var infoWindow = document.getElementById("checking-result");
+  var age = document.getElementById("input-age").value;
+  infoWindow.innerHTML = "";
+  try {
+    if(age == "") throw "empty";
+    if(isNaN(age)) throw "not a number";
+    age = Number(age);
+    if(age < 18) throw "too young";
+    if(age > 50) throw "too old";
+  } catch(err) {
+    infoWindow.innerHTML = "Age is " + err;
+  }
+  infoWindow.style.display = "block";
+});
+
+//Testing input validation with try...catch...finally statements:
+document.getElementsByClassName("callFunction")[18].addEventListener("click",function(){
+  var infoYear = document.getElementById("checking-year");
+  var year = document.getElementById("year");
+  infoYear.innerHTML = "";
+  try {
+    if(year.value == "") throw "empty";
+    if(isNaN(year.value)) throw "not a number";
+    if(parseInt(year.value) < 1901) throw "Oops! Your answer is lower than independence year!";
+    if(parseInt(year.value) > 1901) throw "Oops! Your answer is bigger than independence year!";
+  } catch(err){
+    infoYear.innerHTML = "Answer: " + err;
+  } finally {
+    year.value = '';
+  }
+  infoYear.style.display = "block";
+});
+
+//Testing all properties name of error object:
+var inputError = document.getElementsByClassName("error-prop");
+var outputResult = document.getElementsByClassName("out-checking-res");
+document.getElementsByClassName("callFunction")[19].addEventListener("click",function(){
+  var x = inputError[0].value;
+  try {
+    x.toPrecision(500);
+  } catch(err) {
+    outputResult[0].innerHTML = "Haha! You made a mistake!: " + err.name;
+  }
+  outputResult[0].style.display = "block";
+});
+
+document.getElementsByClassName("callFunction")[20].onclick = function(){
+  var x = inputError[1].value;
+  try {
+    x = Math.sqrt(Math.pow((x*y),Math.E));
+  } catch(err) {
+    outputResult[1].innerHTML = "Haha! Y doesn't exist: " + err.name;
+  }
+  outputResult[1].style.display = "block";
+}
+
+document.getElementsByClassName("callFunction")[21].onclick = function(){
+  var x = inputError[2].value;
+  try {
+    x.toFixed();
+  } catch(err){
+    outputResult[2].innerHTML = "Haha! Type of your input isn't validated: " + err.name;
+  }
+  outputResult[2].style.display = "block";
 }
