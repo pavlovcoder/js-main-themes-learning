@@ -14,6 +14,8 @@
             <button class="tablinks">Break</button>
             <button class="tablinks">Type Conversion</button>
             <button class="tablinks">Bitwise</button>
+            <button class="tablinks">Errors</button>
+            <button class="tablinks">Hoisting</button>
         </div>
         <!-- Contents of static menu -->
         <div id="Comparisons" class="tabcontent">
@@ -22,7 +24,7 @@
             <h4 class="main-subtitles">1. Ternary operator checking</h4>
             <div class="content">
                 <label>Your age: </label>
-                <input type="text" placeholder="18..." id="age"> 
+                <input type="text" placeholder="18..." id="age">
                 <button type="button" class="callFunction">Try it</button>
                 <p id="output-status"></p>
             </div>
@@ -90,9 +92,9 @@
                     <li><button type="button" class="callFunction left-menu">75|5</button></li>
                     <li><button type="button" class="callFunction left-menu">75^5</button></li>
                     <li><button type="button" class="callFunction left-menu">~75</button></li>
-                    <li><button type="button" class="callFunction left-menu">75 &#12298 5</button></li>
-                    <li><button type="button" class="callFunction left-menu" left-menu>75 &#12299 5</button></li>
-                    <li><button type="button" class="callFunction left-menu">&#12297&#12297&#12297</button></li>
+                    <li><button type="button" class="callFunction left-menu">LEFT</button></li>
+                    <li><button type="button" class="callFunction left-menu">RIGHT</button></li>
+                    <li><button type="button" class="callFunction left-menu">RIGHT</button></li>
                 </ul>
                 <div class="output-bitwise">
                     <div class="bitwise-table">
@@ -108,6 +110,61 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div id="errors" class="tabcontent">
+          <h3>Errors</h3>
+          <hr />
+          <h4 class="main-subtitles">1. Simple example with input validation:</h4>
+          <div class="content">
+            <fieldset>
+              <legend>
+                Input your age:
+              </legend>
+              <input id="input-age" type="number" min="0" placeholder="example: 18..."/>
+              <button type="button" class="callFunction">Check age</button>
+              <p id="checking-result">Checking result</p>
+            </fieldset>
+          </div>
+
+          <h4 class="main-subtitles">2. Simple example try...catch... and finally statements:</h4>
+          <div class="content">
+            <fieldset>
+              <legend>When is Australia Independence Day ?</legend>
+              <input id="year" type="text" placeholder="1 January ... year" />
+              <button type="button" class="callFunction">Check year</button>
+              <p id="checking-year"></p>
+            </fieldset>
+          </div>
+
+          <h4 class="main-subtitles">3. Testing all properties of error object: </h4>
+          <div class="content">
+            <fieldset class="fieldsets">
+              <legend>Provide number which have 4 digits</legend>
+              <input class="error-prop" type="number" placeholder="4356..." />
+              <button type="button" class="callFunction">Check</button>
+              <p class="out-checking-res"></p>
+            </fieldset>
+            <fieldset class="fieldsets">
+              <legend>Provide x for expression: √(x*y)^e</legend>
+              <input class="error-prop" type="number" placeholder="any number..." />
+              <button type="button" class="callFunction">Check</button>
+              <p class="out-checking-res"></p>
+            </fieldset>
+            <fieldset class="fieldsets">
+              <legend>Provide name .... of Franklin</legend>
+              <input class="error-prop" type="text" placeholder="....Franklin" />
+              <button type="button" class="callFunction">Check</button>
+              <p class="out-checking-res"></p>
+            </fieldset>
+          </div>
+        </div>
+        <div id="hoisting" class="tabcontent">
+          <h3>Hoisting</h3>
+          <hr />
+          <h4 class="main-subtitles">Testing simple example of using "Hoisting": </h4>
+          <div class="content">
+
+          </div>
         </div>
         <script src="index.js"></script>
     </body>
