@@ -161,9 +161,12 @@
         <div id="hoisting" class="tabcontent">
           <h3>Hoisting</h3>
           <hr />
-          <h4 class="main-subtitles">Testing simple example of using "Hoisting": </h4>
+          <h4 class="main-subtitles">Calculate indefinite integral without declaring variable before execution: </h4>
           <div class="content">
-
+            <label for="integral-calc">∫x<sup>n</sup>+1/x*dx: provide n-th for calculation:</label>
+            <input id="integral-calc" type="number" placeholder="provide n-th" />
+            <button type="button" class="callFunction">Calculate</button>
+            <p class="out-result-hoisting"></p>
           </div>
         </div>
         <script src="index.js"></script>
