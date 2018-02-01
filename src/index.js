@@ -28,6 +28,15 @@ document.getElementsByClassName("tablinks")[6].addEventListener('click',function
   openNewTheme(event,6);
 });
 
+document.getElementsByClassName("tablinks")[7].addEventListener('click', function() {
+    openNewTheme(event, 7);
+});
+
+document.getElementsByClassName("tablinks")[8].addEventListener('click', function() {
+    openNewTheme(event, 8);
+    rocketObj();
+});
+
 function openNewTheme(ev,thNum){
     var tabcontent = document.getElementsByClassName("tabcontent"),
     tablinks = document.getElementsByClassName("tablinks");
@@ -146,7 +155,6 @@ document.getElementsByClassName("callFunction")[5].addEventListener("click",func
     hardwareRow.appendChild(GPU);
 
     hardwareTitle.innerHTML = "HARDWARE MONITORING";
-    console.log(hardware);
     outCont2[0].appendChild(hardware);
 
     Monitor: {
@@ -350,6 +358,7 @@ document.getElementsByClassName("callFunction")[18].addEventListener("click",fun
 //Testing all properties name of error object:
 var inputError = document.getElementsByClassName("error-prop");
 var outputResult = document.getElementsByClassName("out-checking-res");
+
 document.getElementsByClassName("callFunction")[19].addEventListener("click",function(){
   var x = inputError[0].value;
   try {
@@ -370,7 +379,7 @@ document.getElementsByClassName("callFunction")[20].onclick = function(){
   outputResult[1].style.display = "block";
 }
 
-document.getElementsByClassName("callFunction")[21].onclick = function(){
+document.getElementsByClassName("callFunction")[21].onclick = function() {
   var x = inputError[2].value;
   try {
     x.toFixed();
@@ -378,4 +387,152 @@ document.getElementsByClassName("callFunction")[21].onclick = function(){
     outputResult[2].innerHTML = "Haha! Type of your input isn't validated: " + err.name;
   }
   outputResult[2].style.display = "block";
+}
+
+//Hoisting function:
+var outRes = document.getElementsByClassName("out-result-hoisting");
+var n = document.getElementById("integral-calc");
+document.getElementsByClassName("callFunction")[22].onclick = function() {
+  var toomler = true;
+  try {
+    if(n.value == '') throw 'Input is empty. Please, try again!';
+    if(isNaN(n.value)) throw 'Input is not a number. Please try gain!';
+  } catch(err) {
+    outRes[0].innerHTML = err;
+    toomler = false;
+  }
+  if(toomler == true){
+    calcIntegral();
+  }
+  outRes[0].style.display = "block";
+}
+
+function calcIntegral(){
+  var nth = document.createElement("sup");
+  var m = n.value;
+  m++;
+  nth.innerHTML = m;
+  outRes[0].innerHTML = '=x';
+  outRes[0].appendChild(nth);
+  outRes[0].innerHTML += '/' + m + '+ln|x| + C';
+}
+
+//Checking associative arrays with named indexes:
+var conOut = document.getElementsByClassName("console"),
+    tesla = [2015, 'Crossover', 'Electric', '259hp'],
+    chevrolet = [],
+    toom = [];
+
+for(var i=0; i < 6; i++) {
+    toom.push(true);
+}
+
+document.getElementsByClassName("actions-btn")[0].onclick = function() {
+     if(toom[0] == true) {
+         conOut[0].innerHTML = ' = ' + tesla.length;
+         toom[0] = false;
+     } else {
+         conOut[0].innerHTML = 'Output';
+         toom[0] = true;
+     }
+}
+
+document.getElementsByClassName("actions-btn")[1].onclick = function() {
+    if(toom[1] == true) {
+        conOut[1].innerHTML = tesla[0];
+        toom[1] = false;
+    } else {
+        conOut[1].innerHTML = 'Output';
+        toom[1] = true;
+    }
+}
+
+document.getElementsByClassName("actions-btn")[2].onclick = function() {
+    if(toom[2] == true) {
+        conOut[2].innerHTML = tesla[2];
+        toom[2] = false;
+    } else {
+        conOut[2].innerHTML = 'Output';
+        toom[2] = true;
+    }
+}
+
+document.getElementsByClassName("actions-btn")[3].onclick = function() {
+    if(toom[3] == true) {
+        conOut[3].innerHTML = chevrolet.length;
+        toom[3] = false;
+    } else {
+        conOut[3].innerHTML = 'Output';
+        toom[3] = true;
+    }
+}
+
+document.getElementsByClassName("actions-btn")[4].onclick = function() {
+    if(toom[4] == true) {
+        conOut[4].innerHTML = chevrolet[1];it
+        toom[4] = false;
+    } else {
+        conOut[4].innerHTML = 'Output';
+        toom[4] = true;
+    }
+}
+
+document.getElementsByClassName("actions-btn")[5].onclick = function() {
+    if(toom[5] == true) {
+        conOut[5].innerHTML = chevrolet[2];
+        toom[5] = false;
+    } else {
+        conOut[5].innerHTML = 'Output';
+        toom[5] = true;
+    }
+}
+var rocket;
+function rocketObj() {
+    console.log("Function was called!");
+    rocket = {
+        'name' : 'Space Launch System (SLS)',
+        'function' : 'Launch vehicle',
+        'country' : 'USA',
+        'manufacturer' : 'Boeing',
+        'cost' : '$35 biilion',
+        'cost_per_launch' : '$500 million',
+        'payload' : '150 tonn'
+    };
+
+    var inputTable = document.getElementById("ls-input-table");
+    var i, j=0;
+
+    for(i in rocket) {
+        inputTable.rows[j].cells[1].innerHTML = rocket[i];
+        j++;
+    }
+}
+
+var lsBtn = document.getElementsByClassName("ls-btn"),
+    status = document.getElementsByClassName("ls-status"),
+    myJSON,
+    rocketJSON,
+    simpleRocket;
+
+lsBtn[0].onclick = function() {
+    myJSON = JSON.stringify(rocket);
+    localStorage.setItem('rocketJSON', myJSON);
+    status[0].style.background = "#ecdb54";
+    status[0].innerHTML = "Rocket Object was saved to the Local Storage";
+}
+
+lsBtn[1].onclick = function() {
+    var outputTable = document.getElementById("ls-output-table");
+    var i, j=0;
+    rocketJSON = localStorage.getItem("rocketJSON");
+    simpleRocket = JSON.parse(rocketJSON);
+
+    for(i in simpleRocket) {
+        outputTable.rows[j].cells[1].innerHTML = simpleRocket[i];
+        j++;
+    }
+
+    outputTable.style.display = "block";
+    status[0].style.backgroundColor = "#00a591";
+    status[0].innerHTML = "Rocket Object was output from Local Storage";
 }
