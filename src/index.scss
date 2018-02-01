@@ -246,6 +246,67 @@ button {
   margin-top: 0;
 }
 
+.array-table, .array-table th, .array-table td, .array-table caption {
+    border: 0.3px solid #a6a6a6;
+}
+
+.subtitles {
+    text-align: center;
+}
+
+.array-table caption {
+    border-bottom: none;
+}
+
+.array-table table {
+    width: 100%;
+}
+
+.array-table th, .array-table td, .array-table caption {
+    padding: 5px;
+}
+
+.array-table {
+    margin-right: 10px;
+}
+
+.actions-btn {
+    width: 100%;
+    height: 100%;
+}
+
+.ls-operations th, .ls-operations td, .ls-operations caption {
+    border: 0.3px solid #a6a6a6;
+    padding: 5px;
+}
+
+.ls-operations {
+    border: 0.3px solid #a6a6a6;
+    width: 100%;
+}
+
+.ls-operations caption {
+    border-bottom: none;
+}
+
+.ls-labels {
+    text-align: center;
+}
+
+.ls-status {
+    background-color: #e94b3c;
+    color: #ffffff;
+    text-align: center;
+}
+
+.ls-btn {
+    width: 100%;
+}
+
+#ls-output-table {
+    display: none;
+}
+
 //For small devices: phones and smartphones:
 @media (min-width: 576px) and (max-width: 767.99px){
     .tab {
