@@ -16,6 +16,9 @@
             <button class="tablinks">Bitwise</button>
             <button class="tablinks">Errors</button>
             <button class="tablinks">Hoisting</button>
+            <button class="tablinks">Mistakes</button>
+            <div class="menu-label">JSON</div>
+            <button class="tablinks">Intro</button>
         </div>
         <!-- Contents of static menu -->
         <div id="Comparisons" class="tabcontent">
@@ -158,6 +161,7 @@
             </fieldset>
           </div>
         </div>
+
         <div id="hoisting" class="tabcontent">
           <h3>Hoisting</h3>
           <hr />
@@ -169,6 +173,207 @@
             <p class="out-result-hoisting"></p>
           </div>
         </div>
-        <script src="index.js"></script>
+
+        <div id="mistakes" class="tabcontent">
+            <h3>Mistakes</h3>
+            <hr />
+            <h4 class="main-subtitles">1. Checking associative arrays with named indexes: </h4>
+            <div class="content">
+                <table class="array-table">
+                    <caption>Comparise two arrays</caption>
+                    <thead>
+                        <th>Wihout named indexes</th>
+                        <th>With named indexes</th>
+                    </thead>
+                    <tr>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td colspan="2" class="subtitles">Tesla Model X</td>
+                                </tr>
+                                <tr>
+                                    <td>Production</td>
+                                    <td>2015</td>
+                                </tr>
+                                <tr>
+                                    <td>Class</td>
+                                    <td>Crossover</td>
+                                </tr>
+                                <tr>
+                                    <td>Type</td>
+                                    <td>Electric</td>
+                                </tr>
+                                <tr>
+                                    <td>Powertrain</td>
+                                    <td>259hp</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td colspan="2" class="subtitles">Chevrolet Bolt EV</td>
+                                </tr>
+                                <tr>
+                                    <td>Production</td>
+                                    <td>2016</td>
+                                </tr>
+                                <tr>
+                                    <td>Class</td>
+                                    <td>Subcompact</td>
+                                </tr>
+                                <tr>
+                                    <td>Type</td>
+                                    <td>Electric</td>
+                                </tr>
+                                <tr>
+                                    <td>Powertrain</td>
+                                    <td>200hp</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="subtitles">Actions</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table class="actions-table">
+                                <tr>
+                                    <td><button type="button" class="actions-btn">Length</button></td>
+                                    <td class="console">Output</td>
+                                </tr>
+                                <tr>
+                                    <td id="selectedBtn"><button type="button" class="actions-btn">[0]</button></td>
+                                    <td class="console">Output</td>
+                                </tr>
+                                <tr>
+                                    <td><button type="button" class="actions-btn">[2]</button></td>
+                                    <td class="console">Output</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td><button type="button" class="actions-btn">Length</button></td>
+                                    <td class="console">Output</td>
+                                </tr>
+                                <tr>
+                                    <td><button type="button" class="actions-btn">[class]</button></td>
+                                    <td class="console">Output</td>
+                                </tr>
+                                <tr>
+                                    <td><button type="button" class="actions-btn">[type]</button></td>
+                                    <td class="console">Output</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id="jsonIntro" class="tabcontent">
+            <h3>JSON - Introduction</h3>
+            <hr />
+            <h4 class="main-subtitles">1. Storing & Retrieving data from Local Storage</h4>
+            <div class="content">
+                <table class="ls-operations">
+                    <caption>LOCAL STORAGE OPERATIONS</caption>
+                    <thead>
+                        <th>Object for input</th>
+                        <th colspan="2">Object for output</th>
+                    </thead>
+                    <tr>
+                        <td>
+                            <table id="ls-input-table">
+                                <tr>
+                                    <td>Name</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Function</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Country</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Manufacturer</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Cost</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Cost per launch</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Payload</td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td colspan="2">
+                            <table id="ls-output-table">
+                                <tr>
+                                    <td>Name</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Function</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Country</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Manufacturer</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Cost</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Cost per launch</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Payload</td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="ls-labels">Local Storage Status</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="ls-status">Local Storage is empty!</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="ls-labels">Input & Output Buttons</td>
+                    </tr>
+                    <tr>
+                        <td><button type="button" class="ls-btn">Save to Local Storage</button></td>
+                        <td><button type="button" class="ls-btn">Get from Local Storage</button></td>
+                        <td><button type="button" class="ls-btn" class="ls-btn">Restart</button></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <!-- For fast loading full page: -->
+        <script>
+            window.onload = function() {
+                var element = document.createElement("script");
+                element.src = "index.js";
+                document.body.appendChild(element);
+            }
+        </script>
     </body>
 </html>
