@@ -8,6 +8,7 @@ body {font-family: "Lato", sans-serif;}
     background-color: #f1f1f1;
     width: 15%;
     height: 98vh;
+    overflow-y: scroll;
 }
 
 /* Style the buttons inside the tab */
@@ -293,7 +294,7 @@ button {
     text-align: center;
 }
 
-.ls-status {
+#ls-status {
     background-color: #e94b3c;
     color: #ffffff;
     text-align: center;
@@ -303,8 +304,63 @@ button {
     width: 100%;
 }
 
+.json-elements th, .json-elements td, .json-elements caption, .json-elements {
+    border: 0.3px solid #a6a6a6;
+    padding: 5px;
+    text-align: center;
+}
+
 #ls-output-table {
     display: none;
+}
+
+#uranus-img {
+    width: 100px;
+    height: 100px;
+}
+
+.json-elements {
+    width: 100%;
+}
+
+.json-elements table {
+    width: 100%;
+}
+
+.json-elements caption {
+    border-bottom: none;
+}
+
+.json-actions {
+    width: 100%;
+    padding: 10px;
+}
+
+.json-console {
+    width: 100%;
+    height: 200px;
+    background-color: #003300;
+    color: #33ff33;
+    font-family: Consolas;
+}
+
+#progressbar {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 50%;
+    height: 5px;
+    position: relative;
+    background-color: #001a00;
+    margin: auto;
+    margin-top: 10px;
+    display: none;
+}
+
+#progressbar-lvl {
+    background-color: #33ff33;
+    height: 5px;
+    position: absolute;
 }
 
 //For small devices: phones and smartphones:
