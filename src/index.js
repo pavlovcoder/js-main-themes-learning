@@ -37,6 +37,11 @@ document.getElementsByClassName("tablinks")[8].addEventListener('click', functio
     rocketObj();
 });
 
+document.getElementsByClassName("tablinks")[9].addEventListener('click', function() {
+    openNewTheme(event, 9);
+    rocketObj();
+});
+
 function openNewTheme(ev,thNum){
     var tabcontent = document.getElementsByClassName("tabcontent"),
     tablinks = document.getElementsByClassName("tablinks");
@@ -509,30 +514,92 @@ function rocketObj() {
 }
 
 var lsBtn = document.getElementsByClassName("ls-btn"),
-    status = document.getElementsByClassName("ls-status"),
+    statusWindow = document.getElementById("ls-status"),
     myJSON,
     rocketJSON,
-    simpleRocket;
+    simpleRocket,
+    toomler = 0;
 
 lsBtn[0].onclick = function() {
-    myJSON = JSON.stringify(rocket);
-    localStorage.setItem('rocketJSON', myJSON);
-    status[0].style.background = "#ecdb54";
-    status[0].innerHTML = "Rocket Object was saved to the Local Storage";
+    if(toomler == 0) {
+        myJSON = JSON.stringify(rocket);
+        localStorage.setItem('rocketJSON', myJSON);
+        statusWindow.style.backgroundColor = "#ecdb54";
+        statusWindow.style.color = "#000000";
+        statusWindow.innerHTML = "Rocket Object was saved to the Local Storage";
+        toomler++;
+    }
 }
 
+var outputTable = document.getElementById("ls-output-table");
 lsBtn[1].onclick = function() {
-    var outputTable = document.getElementById("ls-output-table");
-    var i, j=0;
-    rocketJSON = localStorage.getItem("rocketJSON");
-    simpleRocket = JSON.parse(rocketJSON);
-
-    for(i in simpleRocket) {
-        outputTable.rows[j].cells[1].innerHTML = simpleRocket[i];
-        j++;
+    if(toomler == 1) {
+        var i, j=0;
+        rocketJSON = localStorage.getItem("rocketJSON");
+        simpleRocket = JSON.parse(rocketJSON);
+        for(i in simpleRocket) {
+            outputTable.rows[j].cells[1].innerHTML = simpleRocket[i];
+            j++;
+        }
+        outputTable.style.display = "block";
+        statusWindow.style.backgroundColor = "#00a591";
+        statusWindow.style.color = "#ffffff";
+        statusWindow.innerHTML = "Rocket Object was output from Local Storage";
+        toomler++;
     }
+}
 
-    outputTable.style.display = "block";
-    status[0].style.backgroundColor = "#00a591";
-    status[0].innerHTML = "Rocket Object was output from Local Storage";
+lsBtn[2].onclick = function() {
+    if(toomler == 2) {
+        var i;
+        for(i = 0; i < outputTable.rows.length; i++) {
+            outputTable.rows[i].cells[1].innerHTML = '';
+        }
+        outputTable.style.display = "none";
+        statusWindow.style.backgroundColor = "#e94b3c";
+        statusWindow.style.color = "#ffffff";
+        statusWindow.innerHTML = "Local Storage is empty!";
+        toomler = 0;
+    }
+}
+
+//JSON - Elements:
+var elBtn = document.getElementsByClassName("json-actions"),
+    elConsole = document.getElementsByClassName("json-console"),
+    uranus;
+
+elBtn[0].onclick = function() {
+    //Identify JSON:
+    uranus = {
+        "Image" : "https://stardate.org/sites/default/files/images/gallery/neptune_blue.jpg",
+        "Planet" : "Uranus",
+        "Orbital_period" : "84 yr",
+        "Orbital_speed" : "6.8 km/s",
+        "Discovered_by" : "Wiliam Herschel",
+        "Atmosphere" : {
+            "Hydrogen" : "83.3%",
+            "Helium" : "15.3%",
+            "Methane" : "2.3%",
+            "Deuteride" : "0.009%"
+        },
+        "Mass" : "8.6810 x 10^25",
+        "Polar_radius" : "24973km"
+    };
+    var progressBar = document.getElementById("progressbar-lvl"),
+        percentLvl = document.getElementsByClassName("json-console"),
+        progressBarCtn = document.getElementById("progressbar"),
+        progressW = 0;
+
+    progressBar.style.width = progressW + "%";
+    var progressId = setInterval(level, 100);
+
+    function level() {
+        if(progressW == 100) {
+            clearInterval(progressId);
+        } else {
+            progressW++;
+            progressBar.style.width = progressW + "%";
+            progressBarCtn.style.display = "block";
+        }
+    }
 }
