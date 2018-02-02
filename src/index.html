@@ -19,6 +19,7 @@
             <button class="tablinks">Mistakes</button>
             <div class="menu-label">JSON</div>
             <button class="tablinks">Intro</button>
+            <button class="tablinks">Elements</button>
         </div>
         <!-- Contents of static menu -->
         <div id="Comparisons" class="tabcontent">
@@ -354,7 +355,7 @@
                         <td colspan="3" class="ls-labels">Local Storage Status</td>
                     </tr>
                     <tr>
-                        <td colspan="3" class="ls-status">Local Storage is empty!</td>
+                        <td colspan="3" id="ls-status">Local Storage is empty!</td>
                     </tr>
                     <tr>
                         <td colspan="3" class="ls-labels">Input & Output Buttons</td>
@@ -367,6 +368,85 @@
                 </table>
             </div>
         </div>
+
+        <div id="jsonElements" class="tabcontent">
+            <h3>JSON - Elements</h3>
+            <hr />
+            <h4 class="main-subtitles">1. Accessing elements in the JSON:</h4>
+            <table class="json-elements">
+                <caption>ACCESSING JSON ELEMENTS</caption>
+                <thead>
+                    <th>Key</th>
+                    <th>Values</th>
+                </thead>
+                <tr>
+                    <td>Image</td>
+                    <td><img src="https://stardate.org/sites/default/files/images/gallery/neptune_blue.jpg" alt="uranus-planet" id="uranus-img"></td>
+                </tr>
+                <tr>
+                    <td>Planet</td>
+                    <td>Uranus</td>
+                </tr>
+                <tr>
+                    <td>Orbital period</td>
+                    <td>84 yr</td>
+                </tr>
+                <tr>
+                    <td>Orbital speed</td>
+                    <td>6.8 km/s</td>
+                </tr>
+                <tr>
+                    <td>Discovered by</td>
+                    <td>Wiliam Herschel</td>
+                </tr>
+                <tr>
+                    <td>Atmosphere</td>
+                    <td>
+                        <table>
+                            <tr>
+                                <td>Hydrogen</td>
+                                <td>83.3%</td>
+                            </tr>
+                            <tr>
+                                <td>Helium</td>
+                                <td>15.3%</td>
+                            </tr>
+                            <tr>
+                                <td>Methane</td>
+                                <td>2.3%</td>
+                            </tr>
+                            <tr>
+                                <td>Deuteride</td>
+                                <td>0.009%</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Mass</td>
+                    <td>8.6810 x 10<sup>25</sup></td>
+                </tr>
+                <tr>
+                    <td>Polar radius</td>
+                    <td>24 973 km</td>
+                </tr>
+                <tr>
+                    <td><button type="button" class="json-actions">Access elements of JSON</button></td>
+                    <td><button type="button" class="json-actions">Delete elements of JSON</button></td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="json-console-title">CONSOLE</td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="json-console">
+                        <p id="">Please, click the button above for starting implementing actions...</p>
+                        <div id="progressbar">
+                            <div id="progressbar-lvl"></div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            </div>
         <!-- For fast loading full page: -->
         <script>
             window.onload = function() {
