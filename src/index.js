@@ -566,40 +566,74 @@ lsBtn[2].onclick = function() {
 //JSON - Elements:
 var elBtn = document.getElementsByClassName("json-actions"),
     elConsole = document.getElementsByClassName("json-console"),
-    uranus;
+    notify = document.getElementById("notification"),
+    uranus,
+    toom2 = 0;
 
 elBtn[0].onclick = function() {
-    //Identify JSON:
-    uranus = {
-        "Image" : "https://stardate.org/sites/default/files/images/gallery/neptune_blue.jpg",
-        "Planet" : "Uranus",
-        "Orbital_period" : "84 yr",
-        "Orbital_speed" : "6.8 km/s",
-        "Discovered_by" : "Wiliam Herschel",
-        "Atmosphere" : {
-            "Hydrogen" : "83.3%",
-            "Helium" : "15.3%",
-            "Methane" : "2.3%",
-            "Deuteride" : "0.009%"
-        },
-        "Mass" : "8.6810 x 10^25",
-        "Polar_radius" : "24973km"
-    };
-    var progressBar = document.getElementById("progressbar-lvl"),
-        percentLvl = document.getElementsByClassName("json-console"),
-        progressBarCtn = document.getElementById("progressbar"),
-        progressW = 0;
+    if(toom2 == 0) {
+        //Identify JSON:
+        uranus = {
+            "Image" : "https://stardate.org/sites/default/files/images/gallery/neptune_blue.jpg",
+            "Planet" : "Uranus",
+            "Orbital_period" : "84 yr",
+            "Orbital_speed" : "6.8 km/s",
+            "Discovered_by" : "Wiliam Herschel",
+            "Atmosphere" : {
+                "Hydrogen" : "83.3%",
+                "Helium" : "15.3%",
+                "Methane" : "2.3%",
+                "Deuteride" : "0.009%"
+            },
+            "Mass" : "8.6810 x 10^25",
+            "Polar_radius" : "24973km"
+        };
+        var progressBar = document.createElement("div"),
+            progressBarCtn = document.createElement("div"),
+            progressW = 0;
 
-    progressBar.style.width = progressW + "%";
-    var progressId = setInterval(level, 100);
+        progressBar.setAttribute("id","progressbar-lvl");
+        progressBarCtn.setAttribute("id","progressbar");
+        progressBarCtn.appendChild(progressBar);
+        elConsole[0].appendChild(progressBarCtn);
 
-    function level() {
-        if(progressW == 100) {
-            clearInterval(progressId);
-        } else {
-            progressW++;
-            progressBar.style.width = progressW + "%";
-            progressBarCtn.style.display = "block";
+        var progressId = setInterval(level, 100);
+        elConsole[0].classList.toggle('after-out', false);
+
+        function level() {
+            if(progressW == 100) {
+                clearInterval(progressId);
+                extractJSON();
+                console.log("Final progres bar : " + elConsole[0].innerHTML);
+            } else {
+                progressW++;
+                progressBar.style.width = progressW + "%";
+                progressBarCtn.style.display = "block";
+            }
         }
+    }
+}
+
+function extractJSON() {
+    var key,
+        progressBarCtn = document.getElementById("progressbar");
+    notify.innerHTML = '';
+    elConsole[0].removeChild(progressBarCtn);
+    elConsole[0].classList.toggle('after-out', true);
+    for(key in uranus) {
+        notify.innerHTML += key + ' : ' + uranus[key] + '\n';
+    }
+    toom2++;
+}
+
+elBtn[1].onclick = function() {
+    var key,
+        progressBarCtn = document.getElementById("progressbar");
+    if(toom2 == 1) {
+        for(key in uranus) {
+            delete uranus[key];
+        }
+        notify.innerHTML = "Please, click the button above for starting implementing actions...";
+        toom2--;
     }
 }
