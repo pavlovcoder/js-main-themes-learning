@@ -20,6 +20,8 @@
             <div class="menu-label">JSON</div>
             <button class="tablinks">Intro</button>
             <button class="tablinks">Elements</button>
+            <button class="tablinks">Parsing</button>
+            <button class="tablinks">Stringify</button>
         </div>
         <!-- Contents of static menu -->
         <div id="Comparisons" class="tabcontent">
@@ -443,6 +445,141 @@
                     </td>
                 </tr>
             </table>
+            </div>
+
+            <div id="parsing-json" class="tabcontent">
+                <h3>JSON - parsing</h3>
+                <hr />
+                <h4 class="main-subtitles">1. Converting recieved string from web-server to the normal JS-object</h4>
+                <table class="converted-obj-table">
+                    <caption>CONVERTING OBJECTS</caption>
+                    <thead>
+                        <th>Object from server</th>
+                        <th>Normal converted object</th>
+                    </thead>
+                    <tr>
+                        <td class="converted-obj-out" style="text-align: left; padding: 20px;">
+                            'var citizenInfo = { <br />
+                                "Full name" : "Vladimir Pavlov", <br />
+                                "Age" : "21", <br />
+                                "Birth date" : "05.03.1996", <br />
+                                "Country of birth" : "Ukraine", <br />
+                                "Homeland" : "Poland", <br />
+                                "Education" : "Columbia University - Computer Science ", <br />
+                                "Place of work" : "Nitro Digital Agency" <br />
+                            }'
+                        </td>
+                        <td class="converted-obj-out" style="text-align: left; padding: 20px"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <button type="button" class="converted-obj-btn">Convert object</button>
+                        </td>
+                    </tr>
+                </table>
+
+                <h4 class="main-subtitles">2. Converting unappropriated values of recieved object to the appropriate: </h4>
+                <table class="converted-date-obj">
+                    <caption>CONVERTING DATE VALUES</caption>
+                    <thead>
+                        <th>Object from server</th>
+                        <th>Normal converter object</th>
+                    </thead>
+                    <tr class="converted-date-obj">
+                        <td class="converted-date-out" style="text-align: left; padding: 20px">
+                            var eCard = { <br />
+                                "Buyer" : "Hendrew Timmermans", <br />
+                                "Company" : "Hendrew & Partners", <br />
+                                "Price" : "$130500", <br />
+                                "Tax1" : "0.56%", <br />
+                                "Tax2" : "1.44%", <br />
+                                "VAT" : "6.55%", <br />
+                                "Transaction_date" : "2018-05-23", <br />
+                                "Tax_summary" : "function() { <br />
+                                    return this.Tax1 + this.Tax2 + this.VAT;<br />
+                                }", <br />
+                                "Final_price" : "function() { <br />
+                                    var percent = (this.Price * <br /> this.Tax_summary) / 100; <br />
+                                    return this.Price - percent; <br />
+                                }"
+                            }
+                        </td>
+                        <td class="converted-date-out" style="text-align: left; padding: 20px;"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <button type="button" class="converted-date-btn">Convert object</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="stringify-json" class="tabcontent">
+                <h3>JSON - stringify</h3>
+                <hr />
+                <h4 class="main-subtitles">1. Converting normal JS-objects to the appropriate for web-server object type</h4>
+                <table class="converted-server">
+                    <caption>CONVERTING OBJECT FOR WEB-SERVER</caption>
+                    <thead>
+                        <th>Normal JS object</th>
+                        <th>Object for web-server</th>
+                    </thead>
+                    <tr>
+                        <td class="converted-server-out" style="text-align: left; padding: 20px">
+                            <table>
+                                <tr>
+                                    <td colspan="2">Electric Circuit</td>
+                                </tr>
+                                <tr>
+                                    <td>I<sub>1</sub></td>
+                                    <td>2.539A</td>
+                                </tr>
+                                <tr>
+                                    <td>I<sub>2</sub></td>
+                                    <td>1.245A</td>
+                                </tr>
+                                <tr>
+                                    <td>U<sub>1</sub></td>
+                                    <td>360V</td>
+                                </tr>
+                                <tr>
+                                    <td>U<sub>2</sub></td>
+                                    <td>1199V</td>
+                                </tr>
+                                <tr>
+                                    <td>L<sub>1</sub></td>
+                                    <td>120H</td>
+                                </tr>
+                                <tr>
+                                    <td>C<sub>1</sub></td>
+                                    <td>5F</td>
+                                </tr>
+                                <tr>
+                                    <td>t<sub>switch</sub></td>
+                                    <td>30.03.2018</td>
+                                </tr>
+                                <tr>
+                                    <td>C = </td>
+                                    <td>function() { <br />
+                                        return Er * E0 * (A/d); </br/>
+                                    }</td>
+                                </tr>
+                                <tr>
+                                    <td>L = </td>
+                                    <td>function() { <br />
+                                        return u0 / (4 * Math.PI); <br />
+                                    }</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td class="converted-server-out" style="text-align: left; padding: 20px;"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <button type="button" class="converted-server-btn">Convert for sending to the web-server</button>
+                        </td>
+                    </tr>
+                </table>
             </div>
         <!-- For fast loading full page: -->
         <script>
