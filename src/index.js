@@ -42,6 +42,14 @@ document.getElementsByClassName("tablinks")[9].addEventListener('click', functio
     rocketObj();
 });
 
+document.getElementsByClassName("tablinks")[10].addEventListener('click', function() {
+    openNewTheme(event, 10);
+});
+
+document.getElementsByClassName("tablinks")[11].addEventListener('click', function() {
+    openNewTheme(event, 11);
+})
+
 function openNewTheme(ev,thNum){
     var tabcontent = document.getElementsByClassName("tabcontent"),
     tablinks = document.getElementsByClassName("tablinks");
@@ -493,7 +501,6 @@ document.getElementsByClassName("actions-btn")[5].onclick = function() {
 }
 var rocket;
 function rocketObj() {
-    console.log("Function was called!");
     rocket = {
         'name' : 'Space Launch System (SLS)',
         'function' : 'Launch vehicle',
@@ -604,7 +611,6 @@ elBtn[0].onclick = function() {
             if(progressW == 100) {
                 clearInterval(progressId);
                 extractJSON();
-                console.log("Final progres bar : " + elConsole[0].innerHTML);
             } else {
                 progressW++;
                 progressBar.style.width = progressW + "%";
@@ -635,5 +641,47 @@ elBtn[1].onclick = function() {
         }
         notify.innerHTML = "Please, click the button above for starting implementing actions...";
         toom2--;
+    }
+}
+
+//Converting received objects from server to the default JS object:
+var toom3 = true;
+document.getElementsByClassName("converted-obj-btn")[0].onclick = function() {
+    if(toom3 == true) {
+        var serverObj = '{"Full_name" : "Vladimir Pavlov", "Age" : 21, "Birth_date" : "05.03.1996", "Country_of_birth" : "Ukraine", "Homeland" : "Poland", "Education" : "Columbia University - Computer Science", "Place_of_work" : "Nitro Digital Agency"}';
+        var infoCitizen = JSON.parse(serverObj);
+        var outConsole = document.getElementsByClassName("converted-obj-out");
+        var key;
+
+        for(key in infoCitizen) {
+            outConsole[1].innerHTML += key + ' : ' + infoCitizen[key] + ',\n';
+        }
+        outConsole[1].style.textAlign = "left";
+        toom3 = false;
+    }
+}
+
+var toom4 = true;
+document.getElementsByClassName("converted-date-btn")[0].onclick = function() {
+    if(toom4 == true) {
+        var serverObj = '{"Buyer" : "Hendrew Timmermans", "Company" : "Hendrew & Partners", "Price" : 130500, "Tax1" : 0.56, "Tax2" : 1.44, "VAT" : 6.55, "Transaction_date" : "2018-05-23", "Tax_summary" : "function(){return this.Tax1 + this.Tax2 + this.VAT", "Final_price" : "function(){var percent = (this.Price * this.Tax_summary) / 100; return this.Price - percent;}"}';
+        //Using reviver function for for checking each values:
+        var eCard = JSON.parse(serverObj, function(key, value) {
+            if(key == "Transaction_date") {
+                return new Date(value);
+            } else {
+                return value;
+            }
+        });
+        //Using eval() function for converting functions from strings:
+        /*eCard.Tax_summary = eval("(" + eCard.Tax_summary + ")");
+        eCard.Final_price = eval("(" + eCard.Final_price + ")");*/
+        var outConsole = document.getElementsByClassName("converted-date-out");
+        var i;
+
+        for(i in eCard) {
+            outConsole[1].innerHTML += i + ' : ' + eCard[i] + ',\n';
+        }
+        toom4 = false;
     }
 }
