@@ -367,6 +367,82 @@ button {
     position: absolute;
 }
 
+.converted-obj-table, .converted-obj-table th, .converted-obj-table td, .converted-obj-table caption {
+    border: 0.3px solid #a6a6a6;
+    padding: 5px;
+    text-align: center;
+}
+
+.converted-obj-out {
+    text-align: left;
+    width: 50%;
+}
+
+.converted-obj-table caption {
+    border-bottom: none;
+}
+
+.converted-obj-table, .converted-obj-btn {
+    width: 100%;
+}
+
+.converted-obj-btn {
+    padding: 10px;
+}
+
+.converted-date-obj, .converted-date-obj th, .converted-date-obj td, .converted-date-obj caption {
+    border: 0.3px solid #a6a6a6;
+    padding: 5px;
+    text-align: center;
+}
+
+.converted-date-out {
+    padding: 10px 20px;
+    text-align: left;
+    width: 50%;
+}
+
+.converted-date-obj caption {
+    border-bottom: none;
+}
+
+.converted-date-obj, .converted-date-btn {
+    width: 100%;
+}
+
+.converted-date-btn {
+    padding: 10px;
+}
+
+.converted-server, .converted-server th, .converted-server td, .converted-server caption {
+    border: 0.3px solid #a6a6a6;
+    padding: 6px;
+    text-align: center;
+}
+
+.converted-server-out {
+    padding: 20px;
+    text-align: left;
+    width: 50%;
+}
+
+.converted-server caption {
+    border-bottom: none;
+}
+
+.converted-server-btn {
+    width: 100%;
+    padding: 10px;
+}
+
+.converted-server {
+    width: 100%;
+}
+
+.converted-server table {
+    width: 100%;
+}
+
 //For small devices: phones and smartphones:
 @media (min-width: 576px) and (max-width: 767.99px){
     .tab {
