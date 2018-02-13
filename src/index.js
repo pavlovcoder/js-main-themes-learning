@@ -50,6 +50,10 @@ document.getElementsByClassName("tablinks")[11].addEventListener('click', functi
     openNewTheme(event, 11);
 })
 
+document.getElementsByClassName("tablinks")[12].onclick = function() {
+    openNewTheme(event, 12);
+}
+
 function openNewTheme(ev,thNum){
     var tabcontent = document.getElementsByClassName("tabcontent"),
     tablinks = document.getElementsByClassName("tablinks");
@@ -683,5 +687,87 @@ document.getElementsByClassName("converted-date-btn")[0].onclick = function() {
             outConsole[1].innerHTML += i + ' : ' + eCard[i] + ',\n';
         }
         toom4 = false;
+    }
+}
+
+//Converting simple JS-object to the object appropriated for the web-server:
+var toom5 = true;
+document.getElementsByClassName("converted-server-btn")[0].onclick = function() {
+    if(toom5 == true) {
+        var circuit = {
+            "I1" : "2.539A",
+            "I2" : "1.245A",
+            "U1" : "360V",
+            "U2" : "1199V",
+            "L1" : "120H",
+            "C1" : "5F",
+            "tswitch" : new Date(),
+            "C" : function() {
+                return Er * E0 * (A/d);
+            },
+            "L" : function() {
+                return u0 / (4 * Math.PI);
+            }
+        };
+
+        circuit.C = circuit.C.toString();
+        circuit.L = circuit.L.toString();
+        var outConsole = document.getElementsByClassName("converted-server-out");
+        var i;
+        var circuitJSON = JSON.stringify(circuit);
+
+        for(i in circuitJSON) {
+            outConsole[1].innerHTML = circuitJSON;
+        }
+        toom5 = false;
+    }
+}
+
+//Recieving data from php web-server:
+var toom6 = true;
+document.getElementsByClassName("recieve-ser-data")[0].onclick = function() {
+    if(toom6 == true) {
+        var consoleOut = document.getElementsByClassName("console-out")[0].children,
+            xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+        if(this.readyState == 4 && this.status == 200) {
+            var myObj = JSON.parse(this.responseText),
+                x;
+            for(x in myObj) {
+                consoleOut[1].innerHTML += x + ' : ' + myObj[x] + ',\n';
+            }
+        }
+    };
+    xmlhttp.open("GET", "index.php", true);
+    xmlhttp.send();
+    toom6 = false;
+    }
+}
+
+//Recieving data from PHP-server using POST-method:
+var toom7 = true;
+document.getElementsByClassName("recieve-ser-data")[1].onclick = function() {
+    if(toom7 == true) {
+        var consoleOut = document.getElementsByClassName("console-out")[1].children,
+            obj = {
+                "table" : "products",
+                "limit" : 10
+            },
+            xmlhttp = new XMLHttpRequest(),
+            dbParam = JSON.stringify(obj),
+            myObj,
+            x;
+        xmlhttp.onreadystatechange = function() {
+            if(this.readyState == 4 && this.status == 200) {
+                myObj = JSON.parse(this.responseText);
+                for(x in myObj) {
+                    consoleOut[1].innerHTML += x + ' : ' + myObj[x] + ',\n';
+                }
+            }
+        };
+        xmlhttp.open("POST", "products.php", true);
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.send("x=" + dbParam);
+        toom7 = false;
     }
 }
