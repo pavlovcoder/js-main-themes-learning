@@ -771,3 +771,62 @@ document.getElementsByClassName("recieve-ser-data")[1].onclick = function() {
         toom7 = false;
     }
 }
+
+//Recieving data from server as a dynamic table:
+var clothesJSON;
+document.getElementById("clothes").onchange = function() {
+    createClothesJSON(this.value);
+    var clothesOut = document.getElementsByClassName("clothes-output"),
+        x, txt = '';
+    if(clothesJSON !== '') {
+        txt += '<table class="clothes-obj">';
+        for(x in clothesJSON) {
+            txt += "<tr><td>" + x + "</td>" + "<td>" + clothesJSON[x] + "</td></tr>";
+        }
+        txt += "</table>";
+        clothesOut[0].innerHTML = txt;
+    } else {
+        clothesOut[0].innerHTML = '';
+    }
+}
+
+function createClothesJSON(check) {
+    switch(check) {
+        case 'jackets':
+            clothesJSON = {
+                "Lyle & Scott Fitness Foulkes Quilted Gilet in Black" : "$100.00",
+                "ASOS Muscle Fit Track Jacket In Black" : "$20.00",
+                "Nicce London Overhead Jacket In Camo" : "$55.00",
+                "Liquor N Poker Oversized Denim Jacket Mustard" : "$45.00"
+            };
+            break;
+        case 'overdress':
+            clothesJSON = {
+                "Adidas Originals adicolor" : "$70.00",
+                "Nike Club Swoosh Crew Sweatshirt In Black 804340-010" : "$38.00",
+                "ASOS Hoodie In Charcoal Marl" : "$18.00",
+                "Fred Perry Crew Neck Sweat In Grey Marl" : "$85.00"
+            };
+            break;
+        case 'underwear':
+            clothesJSON = {
+                "Polo Ralph Lauren Regular Fit Chino Shorts in Beige" : "$85.00",
+                "Nike Jersey Shorts With Large Logo In Black 843520-010" : "$33.00",
+                "New Look SPORT Running Shorts In Dark Grey" : "$9.99",
+                "Wrangler Peter Max Colour Block Short" : "$140.00"
+            };
+            break;
+        case 'shoes':
+            clothesJSON = {
+                "Nike Air Force 1 '07 Trainers In White 315122-111" : "$75.00",
+                "Nike Air Max 95 Premium Trainers In Black 538416-012" : "$125.00",
+                "Nike Air Vapormax Plus Trainers In Blue 924453-401" : "$170.00",
+                "Base London Turner Leather Brogue Shoes in Tan" : "$75.00"
+            };
+            break;
+        case 'none':
+            clothesJSON = '';
+            break;
+    }
+}
+
