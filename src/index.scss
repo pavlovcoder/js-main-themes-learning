@@ -475,6 +475,14 @@ button {
     border: 1px solid #000000;
 }
 
+.es6-out {
+    border: 1px solid #000000;
+    margin: 20px 0 0 0;
+    padding: 20px;
+    width: 100%;
+    display: none;
+}
+
 //For small devices: phones and smartphones:
 @media (min-width: 576px) and (max-width: 767.99px){
     .tab {
