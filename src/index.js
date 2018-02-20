@@ -54,6 +54,10 @@ document.getElementsByClassName("tablinks")[12].onclick = function() {
     openNewTheme(event, 12);
 }
 
+document.getElementsByClassName("tablinks")[13].onclick = function() {
+    openNewTheme(event, 13);
+}
+
 function openNewTheme(ev,thNum){
     var tabcontent = document.getElementsByClassName("tabcontent"),
     tablinks = document.getElementsByClassName("tablinks");
@@ -827,6 +831,61 @@ function createClothesJSON(check) {
         case 'none':
             clothesJSON = '';
             break;
+    }
+}
+
+//ES6 - overview all features
+var toom8 = true,
+    consoleOut = document.getElementsByClassName("es6-out");
+document.getElementsByClassName("es6-btn")[0].onclick = function() {
+    if(toom8 == true) {
+        var a = [4, 6, 8],
+            b = [0.246, 0.746, 0.986];
+        for(let i = 0; i < a.length; i++) {
+            let x = a[i];
+        }
+        for (let i = 0; i < b.length; i++) {
+            let y = b[i];
+        }
+        let callbacks = []
+        for(let i = 0; i <=2; i++) {
+            callbacks[i] = function (){
+                return i * 2;
+            }
+        }
+        consoleOut[0].innerHTML = "Output: ";
+        for(let i in callbacks) {
+            consoleOut[0].innerHTML += callbacks[i]() + ',\n';
+        }
+        consoleOut[0].style.display = "block";
+        toom8 = false;
+    }
+}
+
+var toom9 = true;
+document.getElementsByClassName("es6-btn")[1].onclick = function() {
+    if(toom9 == true) {
+        {
+            function first() {
+                return "First function is here!";
+            }
+            consoleOut[1].innerHTML = "Output : <br/>" + first() + "<br/>";
+            {
+                function second() {
+                    return "    First internal function from first is here!";
+                }
+                consoleOut[1].innerHTML += second() + "<br/>";
+                {
+                    function third() {
+                        return "        First internal function from first & first external is here!";
+                    }
+                    consoleOut[1].innerHTML += third() + "<br/>";
+                } 
+            }
+            consoleOut[1].innerHTML += first() + "<br/>";
+        }
+        consoleOut[1].style.display = "block";
+        toom9 = false;
     }
 }
 
